@@ -18,3 +18,14 @@ print(list3)
 print(list3)
 print(delimeter.join(list3))
 
+# sort function will remove original list so you can use sorted(list3)
+sorted(list3)
+print(list3)
+
+
+# The below is the example to reference only 1 list even if there are 2.
+li1= [1,2,3,4,5]
+li2 = li1   #This is point to one if I change something will also change in li1.
+
+li3 = li1[:]  #THis code will create a new array.
+
