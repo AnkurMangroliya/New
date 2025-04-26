@@ -1,3 +1,5 @@
+# Find the maximum products of two number.
+
 def max_product(arr):
     max1,max2=0,0
     for num in arr:
