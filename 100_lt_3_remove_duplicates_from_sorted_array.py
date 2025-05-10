@@ -30,3 +30,4 @@ class Solution:
     
 s = Solution()
 print(s.removeDuplicates([1,1,2,2,3,4,5]))
+
