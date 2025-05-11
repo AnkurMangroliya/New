@@ -31,3 +31,15 @@ class Solution:
 s = Solution()
 print(s.removeDuplicates([1,1,2,2,3,4,5]))
 
+# ANother method to give full list.
+# reserve the order.
+def remove_duplicates(arr):
+    seen = set()
+    result =[]
+    for num in arr:
+        if num not in seen:
+            seen.add(num)
+            result.append(num)
+    return result
+
+print(remove_duplicates([5,3,2,6,7,2,4,7,4,3,2,32,2]))
