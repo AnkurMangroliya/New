@@ -1,17 +1,11 @@
 class Solution:
-    def isValid(self, s: str) -> bool:
-        stack = []
-        bracket = {')':'(','}':'{',']':'['}
-
-        for i in s:
-            if i in bracket:
-                top = stack.pop() if stack else '#'
-                if bracket[i] != top:
-                    return False
-            else:
-                stack.append(i)
-        return not stack
-
+    def removeDuplicates(self, nums: list[int]) -> int:
+        j = 1
+        for i in range(1,len(nums)):
+            if nums[i]!=nums[i-1]:
+                nums[j]=nums[i]
+                j +=1
+        return j
 
 b = Solution()
-print(b.isValid("())"))
+print(b.removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
