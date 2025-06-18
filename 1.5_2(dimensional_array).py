@@ -8,7 +8,7 @@ print(len(a))
 
 new_col = np.insert(a, 0, [[10,11,12]], axis=1)
 new_raw = np.insert(a, 0, [[10,11,12]], axis=0)
-# axis=1 means added new column and axis=1 is raw.
+# axis=1 means added new column and axis=0 is raw.
 
 print(new_col)
 print(new_raw)
