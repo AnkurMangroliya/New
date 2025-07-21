@@ -15,6 +15,7 @@ def max_product(arr):
             min1=num
         elif num<min2:
             min2=num
+    print(max1,max2,min1,min2)
     return max(max1*max2,min1*min2)
 
 print(max_product([-1,-2,-4,-5,-8,-2,-3]))
