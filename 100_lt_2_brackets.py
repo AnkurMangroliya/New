@@ -19,6 +19,25 @@
 
 # Output: true
 
+# class Solution:
+#     def isValid(self, s: str) -> bool:
+#         stack = []
+#         bracket = {')':'(','}':'{',']':'['}
+
+#         for char in s:
+#             if char in bracket:
+#                 top = stack.pop() if stack else '#'
+#                 if bracket[char] != top:
+#                     return False
+#             else:
+#                 stack.append(char)
+#         return not stack
+
+# sol = Solution()  
+# print(sol.isValid('{()}'))
+
+
+
 class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
@@ -32,3 +51,6 @@ class Solution:
             else:
                 stack.append(char)
         return not stack
+
+sol = Solution()  
+print(sol.isValid('{()}'))
