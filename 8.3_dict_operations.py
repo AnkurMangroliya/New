@@ -18,3 +18,19 @@ print(myDict)
 
 # .pop()  method also used to deleting element my_dict.pop("age"), it laso return value
 
+# to remove last element, I have to use .popitem() method
+
+# my_dict.clear()
+# Used to delete all elements and {} should be stayed.   Time complexity is O(n)
+
+
+new_dict = myDict.copy()  # it creates shallow copy. means different dict that existing one.
+print(new_dict)
+
+
+# Another way to create dictniories.
+newDict = {}.fromkeys([1,2,3],0)   #helpful to create new dict with same values.
+print(newDict)
+#  If you don't provide values it will take None.
+
+print(newDict.get(1,10))   # This will return values if existing otherwise return 10 which is set at the last.
