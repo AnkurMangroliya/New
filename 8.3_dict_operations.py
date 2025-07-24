@@ -34,3 +34,28 @@ print(newDict)
 #  If you don't provide values it will take None.
 
 print(newDict.get(1,10))   # This will return values if existing otherwise return 10 which is set at the last.
+
+print(newDict.keys())
+
+# Another method
+
+newD = {"ankur":"Mangroliya"}
+
+newDict.update(newD)
+print(newDict)
+
+newDict.update({1:0})
+print(newDict)
+
+# If values are present it did not changed anythings.
+
+print(1 in newDict)  # by default it's keys take
+print("Mangroliya" in newDict.values())
+
+print(len(newDict))
+print(all(newDict))  # This will give true if all keys are positive like not 0 as keys stored. otherwise give False
+print(any(new_dict))  # only false if all keys are false, otherwise true
+
+print(newDict)
+print(sorted(newD))
+
