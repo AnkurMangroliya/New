@@ -19,3 +19,9 @@
 # Object definition
 # robot_a = RobotBlueprint()
 
+# Empty class
+class StarCokkie:
+    pass    
+
+star_cokkie = StarCokkie()
+print(type(star_cokkie))  # Output: <class '__main__.StarCokkie'>
