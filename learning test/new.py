@@ -19,5 +19,21 @@ except Exception as e:
 except BaseException as e:
     print("BaseException caught:", e)
 
+import asyncio
+
+async def async_function():
+    print("started")
+    await asyncio.sleep(3)
+    print("finished")
+
+async def main():
+    print("Main started")
+    await async_function()
+    print("Main finished")
+
+if __name__ == "__main__":
+    asyncio.run(main())
+    print("Program finished")
+
 
 
