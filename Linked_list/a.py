@@ -8,11 +8,21 @@ class SLinkedList:
         self.head = None
         self.tail = None
     
-    def __iter__(self):
-        node = self.head
-        while node:
-            yield node
-            node = node.next
+    # def __iter__(self):
+    #     node = self.head
+    #     while node:
+    #         yield node
+    #         node = node.next
+
+    def __str__(self):
+        temp_node = self.head
+        result = ""
+        while temp_node is not None:
+            result += str(temp_node.value)
+            if temp_node.next is not None:
+                result += " -> "
+            temp_node = temp_node.next
+        return result
     
     # insert in Singly Linked List
     def insert(self, value, location):
@@ -47,7 +57,8 @@ singleLinkedList.insert(4, 3)
 # singleLinkedList.insert(30, 2)
 # singleLinkedList.insert(30, 5)
 # singleLinkedList.insert(0, 5)
-print([node.value for node in singleLinkedList])
+# print([node.value for node in singleLinkedList])
+print(singleLinkedList)  # This will print the linked list in a readable format
 
 
 
