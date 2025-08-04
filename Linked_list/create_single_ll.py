@@ -49,11 +49,23 @@ class SLinkedList:
                     tempNode.next = newNode
                     newNode.next = nextNode
     
+    # Time and space complexity O(n) and O(1)
     def traverse(self):
         current = self.head
         while current:
             print(current.value)
             current = current.next
+
+    # Time and space complexity O(n) and O(1)
+    def search(self, target):
+        current = self.head
+        index = 0
+        while current:
+            if current.value == target:
+                return True, index
+            current = current.next
+            index += 1
+        return False
 
 
 singleLinkedList = SLinkedList()
@@ -65,3 +77,4 @@ singleLinkedList.insert(4, 3)
 # print([node.value for node in singleLinkedList]) # This will print the values in the linked list
 print(singleLinkedList)  # This will print the linked list in a readable format
 singleLinkedList.traverse()
+print(singleLinkedList.search(3))
