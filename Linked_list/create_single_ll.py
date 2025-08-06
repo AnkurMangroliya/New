@@ -137,20 +137,41 @@ class SLinkedList:
     def delete_all(self):
         self.head = None
         self.tail = None
-        self.length = 0 
+        self.length = 0
+    
+    def reverse(self):
+        pre_node = None
+        current_node = self.head
+        while current_node is not None:
+            next_node = current_node.next
+            current_node.next = pre_node
+            pre_node = current_node
+            current_node = next_node
+        self.head, self.tail = self.tail,self.head
 
+    def find_middle(self):
+        slow = self.head
+        fast = self.head
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+        return slow.value
 
 singleLinkedList = SLinkedList()
 singleLinkedList.insert(1, 1) 
 singleLinkedList.insert(2, 1)
 singleLinkedList.insert(3, 1)
 singleLinkedList.insert(4, 4)
+singleLinkedList.insert(6, 4)
+singleLinkedList.insert(5, 4)
 
 # print([node.value for node in singleLinkedList]) # This will print the values in the linked list
 print(singleLinkedList)  # This will print the linked list in a readable format
 # singleLinkedList.traverse()
 # print(singleLinkedList.search(3))
-print(singleLinkedList.set_value(2,10))
-print(singleLinkedList.remove(3))
-print(singleLinkedList.length)
+# print(singleLinkedList.set_value(2,10))
+# print(singleLinkedList.remove(3))
+# print(singleLinkedList.length)
+# singleLinkedList.reverse()
+print(singleLinkedList.find_middle())
 print(singleLinkedList)
