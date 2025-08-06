@@ -102,7 +102,7 @@ class SLinkedList:
         return popped_node.value
 
     # Time and space complexity O(n) and O(1)
-    def pop_last(self):
+    def pop(self):
         if self.length == 0:
             return None
         popped_node = self.tail
@@ -118,6 +118,26 @@ class SLinkedList:
         self.length -= 1
         return popped_node
 
+    # Time and space complexity O(n) and O(1)
+    def remove(self,index):
+        if index >= self.length or index < -1:
+            return None
+        if index == 0:
+            return self.pop_first()
+        if index == self.length-1 or index == -1:
+            return self.pop()
+        prev_node = self.get(index-1)
+        popped_node = prev_node.next
+        prev_node.next = popped_node.next
+        popped_node.next = None
+        self.length -= 1
+        return popped_node.value
+    
+    # In Python, garbage collection automatically delete if it's not point to any element one by one.
+    def delete_all(self):
+        self.head = None
+        self.tail = None
+        self.length = 0 
 
 
 singleLinkedList = SLinkedList()
@@ -131,6 +151,6 @@ print(singleLinkedList)  # This will print the linked list in a readable format
 # singleLinkedList.traverse()
 # print(singleLinkedList.search(3))
 print(singleLinkedList.set_value(2,10))
-print(singleLinkedList.pop_last())
+print(singleLinkedList.remove(3))
 print(singleLinkedList.length)
 print(singleLinkedList)
