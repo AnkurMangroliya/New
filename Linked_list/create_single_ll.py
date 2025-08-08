@@ -156,13 +156,29 @@ class SLinkedList:
             slow = slow.next
             fast = fast.next.next
         return slow.value
+    
+    def remove_duplicates(self):
+        if self.head is None:
+            return
+        node_set = set()
+        current_node = self.head
+        node_set.add(current_node)
+
+        while current_node.next:
+            if current_node.next.value in node_set:
+                current_node.next = current_node.next.next
+                self.length -= 1
+            else:
+                node_set.add(current_node.next.value)
+                current_node = current_node.next
+        self.tail = current_node
 
 singleLinkedList = SLinkedList()
 singleLinkedList.insert(1, 1) 
 singleLinkedList.insert(2, 1)
-singleLinkedList.insert(3, 1)
+singleLinkedList.insert(2, 1)
 singleLinkedList.insert(4, 4)
-singleLinkedList.insert(6, 4)
+singleLinkedList.insert(4, 4)
 singleLinkedList.insert(5, 4)
 
 # print([node.value for node in singleLinkedList]) # This will print the values in the linked list
@@ -173,5 +189,5 @@ print(singleLinkedList)  # This will print the linked list in a readable format
 # print(singleLinkedList.remove(3))
 # print(singleLinkedList.length)
 # singleLinkedList.reverse()
-print(singleLinkedList.find_middle())
+print(singleLinkedList.remove_duplicates())
 print(singleLinkedList)
