@@ -173,6 +173,20 @@ class SLinkedList:
                 current_node = current_node.next
         self.tail = current_node
 
+    def removeElements(self, value):
+        dummy = Node(-1)
+        dummy.next = self.head
+        prev_node = dummy
+        Current_node = self.head
+        while Current_node:
+            if Current_node.value == value:
+                prev_node.next = Current_node.next
+            else:
+                prev_node = Current_node
+            Current_node = Current_node.next
+        return dummy.next
+
+
 singleLinkedList = SLinkedList()
 singleLinkedList.insert(1, 1) 
 singleLinkedList.insert(2, 1)
@@ -189,5 +203,5 @@ print(singleLinkedList)  # This will print the linked list in a readable format
 # print(singleLinkedList.remove(3))
 # print(singleLinkedList.length)
 # singleLinkedList.reverse()
-print(singleLinkedList.remove_duplicates())
+print(singleLinkedList.removeElements(2))
 print(singleLinkedList)
