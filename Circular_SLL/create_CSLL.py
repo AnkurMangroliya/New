@@ -45,6 +45,8 @@ class CSLinkedList:
         self.length += 1
     
     def insert(self,index,value):
+        if index > self.length or index < 0:
+            raise Exception("Index out of range.")
         if index == 0:
             self.prepend(value)
         elif index == self.length:
@@ -57,11 +59,49 @@ class CSLinkedList:
             new_node.next = temp_node.next
             temp_node.next = new_node
             self.length += 1
+    
+    def traverse(self):
+        current = self.head
+        while current is not None:
+            print(current.value)
+            current = current.next
+            if current == self.head:
+                break
+
+    def search(self,target):
+        current = self.head
+        while current is not None:
+            if current.value == target:
+                return True
+            current = current.next
+            if current == self.head:
+                break
+        return False
+
+    def get(self,index):
+        if index < -1 or index >= self.length:
+            return None
+        current = self.head
+        for _ in range(index):
+            current = current.next
+        return current
+
+    def set(self,index,value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
 
 csLL = CSLinkedList()
 # csLL.append(10)
 csLL.insert(0,40)
 csLL.append(20)
+csLL.append(30)
+csLL.insert(0,70)
 print(csLL)
-csLL.insert(6,50)
-print(csLL.tail.value)
+csLL.insert(1,50)
+print(csLL.search(0))
+print(csLL.get(2).value)
+csLL.set(1,100)
+print(csLL)
