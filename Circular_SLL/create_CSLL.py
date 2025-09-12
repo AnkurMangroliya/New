@@ -44,11 +44,24 @@ class CSLinkedList:
             self.tail = new_node
         self.length += 1
     
+    def insert(self,index,value):
+        if index == 0:
+            self.prepend(value)
+        elif index == self.length:
+            self.append(value)
+        else:
+            new_node = Node(value)
+            temp_node = self.head
+            for _ in range(index-1):
+                temp_node = temp_node.next
+            new_node.next = temp_node.next
+            temp_node.next = new_node
+            self.length += 1
 
 csLL = CSLinkedList()
-csLL.append(10)
-print(csLL)
-csLL.prepend(30)
-print(csLL)
+# csLL.append(10)
+csLL.insert(0,40)
 csLL.append(20)
 print(csLL)
+csLL.insert(6,50)
+print(csLL.tail.value)
