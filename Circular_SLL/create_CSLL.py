@@ -93,6 +93,59 @@ class CSLinkedList:
             return True
         return False
 
+    def pop_first(self):
+        popped_node = self.head
+        if self.length == 0:
+            return None
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = self.head.next
+            self.tail.next = self.head
+            popped_node.next = None
+        self.length -= 1
+        return popped_node
+
+    def pop(self):
+        popped_node = self.tail
+        if self.length == 0:
+            return None
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            temp = self.head
+            while temp.next is not self.tail:
+                temp = temp.next
+            temp.next = self.head
+            self.tail = temp
+            popped_node.next = None
+        self.length -= 1
+        return popped_node
+
+    def remove(self,index):
+        if index < 0 or index >= self.length:
+            return None
+        elif index == 0:
+            return self.pop_first()
+        elif index == self.length-1:
+            return self.pop()
+        prev_node = self.get(index-1)
+        popped_node = prev_node.next
+        prev_node.next = popped_node.next
+        popped_node.next = None
+        self.length -= 1
+        return popped_node
+    
+    def delete_all(self):
+        if self.length == 0:
+            return
+        self.tail.next = None
+        self.head = None
+        self.tail = None
+        self.length = 0
+
 csLL = CSLinkedList()
 # csLL.append(10)
 csLL.insert(0,40)
@@ -104,4 +157,6 @@ csLL.insert(1,50)
 print(csLL.search(0))
 print(csLL.get(2).value)
 csLL.set(1,100)
+print(csLL)
+print(csLL.remove(2).value)
 print(csLL)
