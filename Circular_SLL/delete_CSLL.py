@@ -65,3 +65,4 @@ class CSLinkedList:
             if current == self.head:
                 break
         return False
+        
